@@ -16,6 +16,7 @@
     "score:explain": "node bin/software-contract-forge.mjs score:explain",
     "build:config": "iso build .",
     "plan": "iso plan .",
+    "prepack": "npm run build:config",
     "postinstall": "node bin/sync.mjs"
   },
   "files": [
@@ -57,6 +58,9 @@
     "url": "https://github.com/Agent-Pattern-Labs/software-contract-forge/issues"
   },
   "homepage": "https://github.com/Agent-Pattern-Labs/software-contract-forge#readme",
+  "publishConfig": {
+    "access": "public"
+  },
   "license": "MIT",
   "engines": {
     "node": ">=20.6.0"
