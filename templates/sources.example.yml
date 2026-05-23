@@ -53,6 +53,132 @@ sources:
     min_score: 2
     limit: 10
     notes: Public API source; keep Remote OK attribution/link when publishing externally.
+  - name: example-greenhouse-board
+    type: ats-public
+    adapter: greenhouse
+    enabled: false
+    board: example-company
+    default_buyer: Example Company
+    include_keywords:
+      - contract
+      - consultant
+      - software
+      - developer
+      - full stack
+      - node
+      - python
+      - ai
+    exclude_keywords:
+      - unpaid
+      - internship
+      - onsite only
+    min_score: 2
+    require_contract_signal: false
+    limit: 10
+    notes: Public Greenhouse board API; use the board token from job-boards.greenhouse.io/<board>.
+  - name: example-lever-board
+    type: ats-public
+    adapter: lever
+    enabled: false
+    company: example-company
+    default_buyer: Example Company
+    include_keywords:
+      - contract
+      - consultant
+      - software
+      - developer
+      - full stack
+      - node
+      - python
+      - ai
+    exclude_keywords:
+      - unpaid
+      - internship
+      - onsite only
+    min_score: 2
+    require_contract_signal: false
+    limit: 10
+    notes: Public Lever postings API; use the company slug from jobs.lever.co/<company>.
+  - name: example-ashby-board
+    type: ats-public
+    adapter: ashby
+    enabled: false
+    organization: example-company
+    default_buyer: Example Company
+    include_keywords:
+      - contract
+      - consultant
+      - software
+      - developer
+      - full stack
+      - node
+      - python
+      - ai
+    exclude_keywords:
+      - unpaid
+      - internship
+      - onsite only
+    min_score: 2
+    require_contract_signal: false
+    limit: 10
+    notes: Public Ashby job-board API; use the organization slug from jobs.ashbyhq.com/<organization>.
+  - name: example-company-careers
+    type: company-careers
+    adapter: public-html
+    enabled: false
+    urls:
+      - https://example.com/careers
+    default_buyer: Example Company
+    crawl_links: true
+    same_origin: true
+    max_pages: 10
+    include_keywords:
+      - contract
+      - consultant
+      - software
+      - developer
+      - full stack
+      - backend
+      - frontend
+      - ai
+    exclude_keywords:
+      - unpaid
+      - internship
+      - onsite only
+    min_score: 2
+    require_contract_signal: false
+    limit: 10
+    notes: Bounded first-party HTML crawl; extracts schema.org JobPosting JSON-LD and obvious application/contact links.
+  - name: example-careers-sitemap
+    type: public-sitemap
+    adapter: sitemap
+    enabled: false
+    url: https://example.com/sitemap.xml
+    default_buyer: Example Company
+    max_sitemaps: 5
+    url_include_patterns:
+      - job
+      - jobs
+      - career
+      - careers
+      - contract
+      - consultant
+    max_pages: 25
+    include_keywords:
+      - contract
+      - consultant
+      - software
+      - developer
+      - full stack
+      - ai
+    exclude_keywords:
+      - unpaid
+      - internship
+      - onsite only
+    min_score: 2
+    require_contract_signal: false
+    limit: 10
+    notes: Bounded sitemap extraction for first-party careers pages.
   - name: linkedin-services
     type: marketplace
     enabled: false

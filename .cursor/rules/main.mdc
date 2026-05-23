@@ -23,6 +23,8 @@ Software Contract Forge is an agentic harness for discovering software contract 
   why: repeated browser tool results in the top-level session bloat context and make settlement harder to audit.
 - [H7] Use deterministic helpers for identity keys, dates, score math, tracker rows, and validation.
   why: helpers make state transitions reproducible and keep agents from deriving canonical values inconsistently.
+- [H8] Keep Geometra stealth per-call, not global. Do not set global Cloak/stealth environment variables in MCP server configs; for allowed browser tasks, pass `stealth: true` on `geometra_connect` and still stop on login, captcha, paywalls, terms gates, and robots/portal restrictions.
+  why: stealth is a browser-session compatibility setting, not permission to bypass access controls or site policies.
 
 ## Defaults
 
