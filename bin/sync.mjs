@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 
-import { existsSync, lstatSync, mkdirSync, readFileSync, readlinkSync, symlinkSync, writeFileSync } from 'fs';
+import { existsSync, lstatSync, mkdirSync, readFileSync, readlinkSync, symlinkSync, unlinkSync, writeFileSync } from 'fs';
 import { dirname, join, relative, resolve } from 'path';
 import { fileURLToPath } from 'url';
 
@@ -56,6 +56,11 @@ for (const link of links) {
       const expected = relative(dirname(dst), src);
       if (actual === expected || resolve(dirname(dst), actual) === src) {
         current++;
+      } else if (isLegacyHarnessLink(dst, actual, link.src)) {
+        unlinkSync(dst);
+        symlinkSync(expected, dst, lstatSync(src).isDirectory() ? 'dir' : 'file');
+        console.log(`relinked: ${link.dst}`);
+        created++;
       } else {
         console.warn(`warn: ${link.dst} points elsewhere; leaving it alone`);
         warned++;
@@ -100,6 +105,10 @@ function isHarnessRoot(root) {
   } catch {
     return false;
   }
+}
+
+function isLegacyHarnessLink(dst, actual, srcPath) {
+  return resolve(dirname(dst), actual) === join(PROJECT_DIR, 'node_modules/software-contract-forge', srcPath);
 }
 
 function patchOpencode() {

@@ -43,7 +43,7 @@ write('package.json', JSON.stringify({
     'update-harness': 'npm install @agent-pattern-labs/software-contract-forge@latest && software-contract-forge sync',
   },
   dependencies: {
-    '@agent-pattern-labs/software-contract-forge': '^0.1.3',
+    '@agent-pattern-labs/software-contract-forge': '^0.1.4',
   },
   engines: {
     node: '>=20.6.0',
