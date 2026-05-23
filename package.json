@@ -1,6 +1,6 @@
 {
   "name": "software-contract-forge",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "Agentic harness for finding, qualifying, and applying to software contract opportunities.",
   "type": "module",
   "bin": {

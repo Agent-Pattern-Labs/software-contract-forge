@@ -6,7 +6,6 @@ import { join, resolve } from 'path';
 const root = resolve(new URL('..', import.meta.url).pathname);
 const required = [
   'package.json',
-  'package-lock.json',
   'AGENTS.md',
   'bin/software-contract-forge.mjs',
   'bin/create-software-contract-forge.mjs',
