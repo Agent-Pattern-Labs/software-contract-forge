@@ -49,6 +49,14 @@
     "harness"
   ],
   "author": "Charlie Greenman",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Agent-Pattern-Labs/software-contract-forge.git"
+  },
+  "bugs": {
+    "url": "https://github.com/Agent-Pattern-Labs/software-contract-forge/issues"
+  },
+  "homepage": "https://github.com/Agent-Pattern-Labs/software-contract-forge#readme",
   "license": "MIT",
   "engines": {
     "node": ">=20.6.0"

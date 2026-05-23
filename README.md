@@ -27,3 +27,7 @@ Then fill in `config/client-profile.yml` and `config/sources.yml`, add leads to 
 - `templates/` contains executable policy: states, score gates, context bundles, capability boundaries, artifact contracts, and migrations.
 - `bin/` exposes the package CLI, consumer scaffolder, and install-time sync.
 - `scripts/` contains deterministic local helpers used by agents instead of deriving values in prose.
+
+## License
+
+MIT. See [LICENSE](LICENSE).
