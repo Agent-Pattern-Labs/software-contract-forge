@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 
-import { createHash } from 'crypto';
 import { readFlag } from '../lib/args.mjs';
+import { opportunityKey, urlKey } from '../lib/canon-key.mjs';
 import { slugify } from '../lib/text.mjs';
 
 const [action = 'help', ...args] = process.argv.slice(2);
@@ -32,8 +32,7 @@ if (action === 'key') {
     process.exit(0);
   }
   if (type === 'opportunity') {
-    const sourceKey = url ? urlKey(url) : slugify(source || 'manual');
-    console.log(`opportunity:${sourceKey}:${slugify(buyer)}:${slugify(title)}`);
+    console.log(opportunityKey({ url, source, buyer, title }));
     process.exit(0);
   }
   console.error(`Unknown key type: ${type}`);
@@ -54,19 +53,6 @@ if (action === 'compare') {
 console.error(`Unknown canon action: ${action}`);
 help();
 process.exit(2);
-
-function urlKey(value) {
-  if (!value) return 'missing-url';
-  try {
-    const url = new URL(value);
-    const normalized = `${url.hostname}${url.pathname}`.replace(/\/+$/, '');
-    const slug = slugify(normalized).slice(0, 80);
-    const hash = createHash('sha256').update(value).digest('hex').slice(0, 8);
-    return `${slug}-${hash}`;
-  } catch {
-    return slugify(value);
-  }
-}
 
 function help() {
   console.log(`software-contract-forge canon

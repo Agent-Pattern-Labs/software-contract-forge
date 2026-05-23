@@ -3,6 +3,56 @@ sources:
     type: inbox
     enabled: true
     notes: Paste leads into data/pipeline.md.
+  - name: weworkremotely-programming
+    type: public-rss
+    adapter: rss
+    enabled: false
+    url: https://weworkremotely.com/categories/remote-programming-jobs.rss
+    include_keywords:
+      - contract
+      - freelance
+      - consultant
+      - full stack
+      - backend
+      - frontend
+      - react
+      - angular
+      - node
+      - python
+      - typescript
+      - ai
+    exclude_keywords:
+      - unpaid
+      - internship
+      - onsite only
+    min_score: 2
+    limit: 10
+    notes: Public RSS feed; review employment type before applying.
+  - name: remoteok
+    type: public-api
+    adapter: remoteok
+    enabled: false
+    url: https://remoteok.com/api
+    include_keywords:
+      - contract
+      - freelance
+      - consultant
+      - software
+      - developer
+      - full stack
+      - react
+      - node
+      - python
+      - typescript
+      - ai
+    exclude_keywords:
+      - unpaid
+      - internship
+      - marketing manager
+      - customer support
+    min_score: 2
+    limit: 10
+    notes: Public API source; keep Remote OK attribution/link when publishing externally.
   - name: linkedin-services
     type: marketplace
     enabled: false

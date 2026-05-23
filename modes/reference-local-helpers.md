@@ -5,6 +5,7 @@ Use local helpers when they can replace prose reasoning.
 ## Commands
 
 - `software-contract-forge today`: stable local date.
+- `software-contract-forge scan [--write] [--source NAME] [--limit N]`: scan enabled public sources and optionally append discovered leads to `data/pipeline.md`.
 - `software-contract-forge slugify TEXT`: filename-safe slugs.
 - `software-contract-forge canon:key opportunity --url URL --buyer BUYER --title TITLE`: stable opportunity key.
 - `software-contract-forge canon:compare A B`: normalized identity comparison.

@@ -1,6 +1,6 @@
 {
   "name": "software-contract-forge",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Agentic harness for finding, qualifying, and applying to software contract opportunities.",
   "type": "module",
   "bin": {
@@ -11,6 +11,7 @@
     "help": "node bin/software-contract-forge.mjs help",
     "validate": "node scripts/check-structure.mjs",
     "sync": "node bin/sync.mjs",
+    "scan": "node bin/software-contract-forge.mjs scan",
     "today": "node bin/software-contract-forge.mjs today",
     "slugify": "node bin/software-contract-forge.mjs slugify",
     "score:explain": "node bin/software-contract-forge.mjs score:explain",
@@ -88,7 +89,9 @@
     "@razroo/iso-score": "^0.1.0",
     "@razroo/iso-timeline": "^0.1.0",
     "@razroo/iso-trace": "^0.5.0",
-    "playwright": "^1.58.1"
+    "fast-xml-parser": "^5.8.0",
+    "playwright": "^1.58.1",
+    "yaml": "^2.9.0"
   },
   "devDependencies": {
     "@razroo/agentmd": "^0.3.0",

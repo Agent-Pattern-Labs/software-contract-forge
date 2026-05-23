@@ -20,6 +20,16 @@ npm install
 
 Then fill in `config/client-profile.yml` and `config/sources.yml`, add leads to `data/pipeline.md`, and run the harness through your agent runtime using the synced instructions and modes.
 
+Public RSS/API sources can be scanned from a consumer project:
+
+```sh
+software-contract-forge scan
+software-contract-forge scan --source weworkremotely-programming --limit 10
+software-contract-forge scan --write
+```
+
+`scan` reads only enabled sources in `config/sources.yml`, dry-runs by default, dedupes against local tracker files, and appends discovered leads to `data/pipeline.md` only with `--write`.
+
 ## Shape
 
 - `iso/` is the source of truth for shared agent instructions, subagents, MCP config, and the command router.

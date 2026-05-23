@@ -15,6 +15,7 @@ const [, , cmd = 'help', ...rest] = process.argv;
 const commands = {
   sync: 'bin/sync.mjs',
   validate: 'scripts/check-structure.mjs',
+  scan: 'scripts/scan.mjs',
   today: 'scripts/today.mjs',
   slugify: 'scripts/slugify.mjs',
   'contract-line': 'scripts/contract-line.mjs',
@@ -34,6 +35,7 @@ Usage:
 Commands:
   sync                  Re-create harness symlinks in the current consumer project
   validate              Check required harness files and parse JSON templates
+  scan                  Discover leads from enabled public sources
   today                 Print today's date in YYYY-MM-DD
   slugify TEXT          Convert text to a stable slug
   contract-line         Render a TSV application/opportunity row
@@ -46,6 +48,7 @@ Commands:
 
 Examples:
   software-contract-forge slugify "Acme Platform Migration"
+  software-contract-forge scan --source weworkremotely-programming --limit 10
   software-contract-forge canon:key opportunity --url https://example.test/rfp/123 --buyer "Acme" --title "Node.js API migration"
   software-contract-forge contract-line --source "manual" --url https://example.test --buyer "Acme" --title "API Migration" --status discovered
   software-contract-forge score:gate --gate apply --input reports/acme-score.json
