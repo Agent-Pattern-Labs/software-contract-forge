@@ -94,7 +94,9 @@ function isHarnessRoot(root) {
   const pkg = join(root, 'package.json');
   if (!existsSync(pkg)) return false;
   try {
-    return JSON.parse(readFileSync(pkg, 'utf8')).name === 'software-contract-forge';
+    return ['@agent-pattern-labs/software-contract-forge', 'software-contract-forge'].includes(
+      JSON.parse(readFileSync(pkg, 'utf8')).name,
+    );
   } catch {
     return false;
   }

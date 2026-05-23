@@ -1,4 +1,4 @@
-# software-contract-forge
+# @agent-pattern-labs/software-contract-forge
 
 Agentic harness for finding software contract opportunities, qualifying them against a local client profile, and applying or drafting proposals when the opportunity clears the configured gates.
 
@@ -13,7 +13,7 @@ node bin/software-contract-forge.mjs help
 Create a consumer project:
 
 ```sh
-node bin/create-software-contract-forge.mjs ../my-contract-pipeline
+npx --package @agent-pattern-labs/software-contract-forge create-software-contract-forge ../my-contract-pipeline
 cd ../my-contract-pipeline
 npm install
 ```

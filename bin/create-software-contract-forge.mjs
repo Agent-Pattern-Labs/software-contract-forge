@@ -40,10 +40,10 @@ write('package.json', JSON.stringify({
     validate: 'software-contract-forge validate',
     today: 'software-contract-forge today',
     'score:explain': 'software-contract-forge score:explain',
-    'update-harness': 'npm update software-contract-forge && software-contract-forge sync',
+    'update-harness': 'npm install @agent-pattern-labs/software-contract-forge@latest && software-contract-forge sync',
   },
   dependencies: {
-    'software-contract-forge': '^0.1.0',
+    '@agent-pattern-labs/software-contract-forge': '^0.1.3',
   },
   engines: {
     node: '>=20.6.0',
@@ -122,7 +122,7 @@ config/sources.yml
 
 write('README.md', `# ${name}
 
-Consumer project for software-contract-forge.
+Consumer project for @agent-pattern-labs/software-contract-forge.
 
 1. Fill in \`config/client-profile.yml\`.
 2. Fill in \`config/sources.yml\`.
