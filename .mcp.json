@@ -1,0 +1,29 @@
+{
+  "mcpServers": {
+    "geometra": {
+      "command": "npx",
+      "args": [
+        "-y",
+        "@geometra/mcp@1.61.3"
+      ]
+    },
+    "gmail": {
+      "command": "npx",
+      "args": [
+        "-y",
+        "@razroo/gmail-mcp"
+      ],
+      "env": {
+        "DISABLE_HTTP": "true"
+      }
+    },
+    "state-trace": {
+      "command": "state-trace-mcp",
+      "env": {
+        "STATE_TRACE_STORAGE_PATH": ".state-trace/memory.db",
+        "STATE_TRACE_NAMESPACE": "software-contract-forge",
+        "STATE_TRACE_CAPACITY_LIMIT": "256"
+      }
+    }
+  }
+}

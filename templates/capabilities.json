@@ -1,0 +1,25 @@
+{
+  "roles": {
+    "general-free": {
+      "purpose": "Procedural source scanning, extraction, form driving, and state rows.",
+      "tools": ["geometra", "gmail", "filesystem"],
+      "maySubmit": "non_binding_only",
+      "maySpawnTasks": false,
+      "writes": ["data/", "batch/", "reports/"]
+    },
+    "general-paid": {
+      "purpose": "Qualification narrative, proposal drafts, risk review, and buyer-facing prose.",
+      "tools": ["filesystem"],
+      "maySubmit": false,
+      "maySpawnTasks": false,
+      "writes": ["reports/"]
+    },
+    "glm-minimal": {
+      "purpose": "Small structured extraction and classification.",
+      "tools": [],
+      "maySubmit": false,
+      "maySpawnTasks": false,
+      "writes": []
+    }
+  }
+}

@@ -1,0 +1,14 @@
+{
+  "name": "software-contract-forge",
+  "description": "Agentic harness for finding, qualifying, and applying to software contract opportunities.",
+  "instructions": "iso/instructions.md",
+  "opencode": {
+    "instructions": "iso/instructions.opencode.md",
+    "skill": "iso/commands/software-contract-forge.md"
+  },
+  "sharedInstructions": [
+    "AGENTS.md",
+    "templates/states.yml",
+    "modes/_shared.md"
+  ]
+}

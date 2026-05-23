@@ -1,0 +1,36 @@
+{
+  "bundles": {
+    "scan": {
+      "files": ["modes/_shared.md", "modes/scan.md", "config/sources.yml", "config/client-profile.yml"],
+      "budgetTokens": 18000
+    },
+    "qualify": {
+      "files": ["modes/_shared.md", "modes/qualify.md", "templates/score.json", "config/client-profile.yml"],
+      "budgetTokens": 18000
+    },
+    "apply": {
+      "files": ["modes/_shared.md", "modes/apply.md", "modes/reference-portals.md", "config/client-profile.yml"],
+      "budgetTokens": 22000
+    },
+    "proposal": {
+      "files": ["modes/_shared.md", "modes/proposal.md", "config/client-profile.yml"],
+      "budgetTokens": 22000
+    },
+    "pipeline": {
+      "files": ["modes/_shared.md", "modes/pipeline.md", "data/pipeline.md"],
+      "budgetTokens": 18000
+    },
+    "batch": {
+      "files": ["modes/_shared.md", "modes/batch.md", "batch/batch-prompt.md"],
+      "budgetTokens": 18000
+    },
+    "tracker": {
+      "files": ["modes/tracker.md"],
+      "budgetTokens": 12000
+    },
+    "followup": {
+      "files": ["modes/followup.md", "config/client-profile.yml"],
+      "budgetTokens": 12000
+    }
+  }
+}

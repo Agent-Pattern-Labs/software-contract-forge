@@ -1,0 +1,26 @@
+# Software Contract Forge model policy.
+
+extends: standard
+
+default:
+  targets:
+    opencode:
+      provider: opencode
+      model: opencode-go/deepseek-v4-flash
+
+roles:
+  fast:
+    targets:
+      opencode:
+        provider: opencode
+        model: opencode-go/deepseek-v4-flash
+  quality:
+    targets:
+      opencode:
+        provider: opencode
+        model: opencode-go/deepseek-v4-flash
+  minimal:
+    targets:
+      opencode:
+        provider: opencode
+        model: opencode-go/deepseek-v4-flash

@@ -1,0 +1,28 @@
+states:
+  discovered:
+    description: Found but not qualified.
+    terminal: false
+  qualified:
+    description: Score gate passed and the opportunity is worth action.
+    terminal: false
+  proposal_drafted:
+    description: Draft exists and needs submission or review.
+    terminal: false
+  applied:
+    description: Non-binding application, expression of interest, or proposal submitted.
+    terminal: false
+  follow_up_due:
+    description: Follow-up should be sent or reviewed.
+    terminal: false
+  won:
+    description: Contract awarded.
+    terminal: true
+  lost:
+    description: Rejected, expired, or buyer chose another vendor.
+    terminal: true
+  skipped:
+    description: Deliberately not pursued.
+    terminal: true
+  blocked:
+    description: Cannot proceed without user input, login, missing proof, or legal/pricing review.
+    terminal: false

@@ -1,0 +1,47 @@
+{
+  "scale": {
+    "min": 0,
+    "max": 5,
+    "higherIsBetter": true
+  },
+  "dimensions": {
+    "fit": {
+      "weight": 0.25,
+      "description": "Technical/domain match with the client profile."
+    },
+    "budget": {
+      "weight": 0.2,
+      "description": "Likely commercial viability after platform fees, payment risk, and delivery effort."
+    },
+    "probability": {
+      "weight": 0.2,
+      "description": "Chance of credible buyer response or award."
+    },
+    "risk": {
+      "weight": 0.15,
+      "description": "Lower legal, payment, compliance, platform, and delivery risk scores higher."
+    },
+    "timeline": {
+      "weight": 0.1,
+      "description": "Deadline and delivery feasibility."
+    },
+    "strategic": {
+      "weight": 0.1,
+      "description": "Portfolio, relationship, repeat-work, or market-positioning value."
+    }
+  },
+  "gates": {
+    "qualify": 3.0,
+    "proposal": 3.2,
+    "apply": 3.4,
+    "auto_submit": 4.0
+  },
+  "blockingFlags": [
+    "binding_terms_without_permission",
+    "missing_required_profile_fact",
+    "unapproved_source",
+    "payment_required_to_bid",
+    "captcha_or_login_blocked",
+    "compliance_attestation_missing"
+  ]
+}

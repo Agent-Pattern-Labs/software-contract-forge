@@ -1,0 +1,51 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$defs": {
+    "opportunity": {
+      "type": "object",
+      "required": ["key", "source", "url", "buyer", "title", "status"],
+      "properties": {
+        "key": { "type": "string" },
+        "source": { "type": "string" },
+        "url": { "type": "string" },
+        "buyer": { "type": "string" },
+        "title": { "type": "string" },
+        "deadline": { "type": "string" },
+        "budget": { "type": "string" },
+        "status": {
+          "type": "string",
+          "enum": ["discovered", "qualified", "proposal_drafted", "applied", "follow_up_due", "won", "lost", "skipped", "blocked"]
+        },
+        "notes": { "type": "string" }
+      },
+      "additionalProperties": true
+    },
+    "score": {
+      "type": "object",
+      "required": ["key", "dimensions"],
+      "properties": {
+        "key": { "type": "string" },
+        "total": { "type": "number" },
+        "dimensions": {
+          "type": "object",
+          "required": ["fit", "budget", "probability", "risk", "timeline", "strategic"],
+          "properties": {
+            "fit": { "type": "number", "minimum": 0, "maximum": 5 },
+            "budget": { "type": "number", "minimum": 0, "maximum": 5 },
+            "probability": { "type": "number", "minimum": 0, "maximum": 5 },
+            "risk": { "type": "number", "minimum": 0, "maximum": 5 },
+            "timeline": { "type": "number", "minimum": 0, "maximum": 5 },
+            "strategic": { "type": "number", "minimum": 0, "maximum": 5 }
+          },
+          "additionalProperties": false
+        },
+        "rationale": { "type": "string" },
+        "risks": {
+          "type": "array",
+          "items": { "type": "string" }
+        }
+      },
+      "additionalProperties": true
+    }
+  }
+}

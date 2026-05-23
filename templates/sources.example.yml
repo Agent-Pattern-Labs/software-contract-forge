@@ -1,0 +1,20 @@
+sources:
+  - name: manual
+    type: inbox
+    enabled: true
+    notes: Paste leads into data/pipeline.md.
+  - name: linkedin-services
+    type: marketplace
+    enabled: false
+    url: https://www.linkedin.com/services/
+    notes: Enable only after login and source policy are configured.
+  - name: upwork
+    type: marketplace
+    enabled: false
+    url: https://www.upwork.com/nx/search/jobs/
+    notes: Check platform terms and client profile before automated submissions.
+  - name: sam-gov
+    type: public-procurement
+    enabled: false
+    url: https://sam.gov/search/
+    notes: Government opportunities usually require manual legal/compliance review.

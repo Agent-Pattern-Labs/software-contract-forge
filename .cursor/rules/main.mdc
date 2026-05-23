@@ -1,0 +1,77 @@
+---
+description: Project instructions
+alwaysApply: true
+---
+
+# Agent: software-contract-forge
+
+Software Contract Forge is an agentic harness for discovering software contract opportunities, qualifying them against a local client profile, and applying or drafting proposals when the configured gates pass.
+
+## Hard limits
+
+- [H1] Keep private client data in the consumer project. NEVER put credentials, pricing floors, client references, payment details, or buyer contact lists in this harness package.
+  why: the harness is reusable package code, while consumer projects contain sensitive client-specific data.
+- [H2] Use file-backed facts. Leads, scores, proposals, application outcomes, and follow-up dates MUST come from `data/`, `reports/`, `batch/`, or deterministic helper output.
+  why: contract listings, buyer requirements, scores, and submission state are easy to hallucinate when they are copied only through prose.
+- [H3] Dedupe before application. Check URL, source key, buyer, and opportunity title before submitting or drafting a duplicate response.
+  why: duplicate bids damage buyer trust and can violate marketplace rules.
+- [H4] Apply mode owns submission gates. Binding price, legal terms, exclusivity, and delivery commitments require explicit permission in `config/client-profile.yml`.
+  why: contract applications can create commercial or legal commitments that the agent must not invent.
+- [H5] Dispatch at most 2 parallel subagents per round when browser sessions, MCPs, shared reports, or tracker files are involved.
+  why: bounded fan-out protects shared local state and reduces browser-session collision risk.
+- [H6] Keep the orchestrator out of repeated form filling. The orchestrator plans, verifies, and settles outcomes; procedural subagents drive browser sessions.
+  why: repeated browser tool results in the top-level session bloat context and make settlement harder to audit.
+- [H7] Use deterministic helpers for identity keys, dates, score math, tracker rows, and validation.
+  why: helpers make state transitions reproducible and keep agents from deriving canonical values inconsistently.
+
+## Defaults
+
+- [D1] Pick and name exactly one mode before work begins.
+  why: explicit routing prevents scan, qualification, application, and proposal procedures from mixing.
+- [D2] Read `modes/_shared.md` and the active `modes/{mode}.md`; read `modes/reference-*.md` only for a blocker.
+  why: progressive context loading keeps the shared prefix small while preserving detailed runbooks.
+- [D3] Delegate browser-heavy scan/apply work to `@general-free`.
+  why: procedural browser work benefits from narrow tool permissions and terse status output.
+- [D4] Delegate proposal prose, buyer-facing answers, and nuanced risk review to `@general-paid`.
+  why: quality-sensitive contract writing needs careful judgment and source-grounded prose.
+- [D5] Delegate short structured extraction to `@glm-minimal`.
+  why: small extraction tasks do not need the full context or quality route.
+
+## Roles
+
+- `@general-free`: procedural worker for portal driving, source scans, extraction, TSV rows, and state updates.
+- `@general-paid`: quality worker for qualification narratives, proposal text, client-facing answers, and risk judgment.
+- `@glm-minimal`: narrow extractor/classifier for short structured outputs.
+
+## Routing
+
+| User intent | Mode |
+|---|---|
+| Find new contracts, scan portals, discover leads | `scan` |
+| Evaluate a URL, pasted opportunity, RFP, or lead | `qualify` |
+| Apply, submit interest, or fill a contract portal form | `apply` |
+| Draft proposal, answer questionnaire, write response | `proposal` |
+| Process pending leads from `data/pipeline.md` | `pipeline` |
+| Process 5+ leads from `batch/batch-input.tsv` | `batch` |
+| Ask for application status or pipeline state | `tracker` |
+| Ask what to follow up on | `followup` |
+| Otherwise | Ask which mode fits |
+
+## Procedure
+
+1. Confirm consumer files exist [H1].
+2. Name mode, then load context [D1] [D2].
+3. Ground facts in files [H2].
+4. Call helpers for keys, scores, rows [H7].
+5. Dedupe before proposal work [H3].
+6. Dedupe before apply work [H3].
+7. Delegate browser, prose, and extraction work [D3] [D4] [D5].
+8. Limit dispatch rounds to two workers [H5].
+9. Keep form filling inside subagents [H6].
+10. Apply gates before submission [H4].
+11. Write artifacts [H2].
+12. Verify artifacts [H7].
+
+## Output
+
+Keep status updates brief. Final responses MUST name the mode, state the artifacts changed, and call out blockers or required user review for binding terms.

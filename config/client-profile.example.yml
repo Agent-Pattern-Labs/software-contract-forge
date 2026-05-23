@@ -1,0 +1,43 @@
+client:
+  name: Example Software Studio
+  timezone: America/New_York
+  website: https://example.test
+
+positioning:
+  summary: Short statement of what the client builds and who they help.
+  strengths:
+    - Full-stack web applications
+    - API integrations
+    - Automation and internal tools
+  proof_files:
+    - docs/capability-statement.md
+
+preferences:
+  preferred_work:
+    - Web application development
+    - Backend APIs
+    - Data automation
+  excluded_work:
+    - Unpaid trials
+    - Spec work
+    - Crypto token promotion
+  geography:
+    - United States
+    - Remote
+  minimum_budget: "Set a real minimum before applying"
+  preferred_contract_length: "2 weeks to 6 months"
+
+submission_policy:
+  auto_submit_non_binding: true
+  auto_submit_binding_terms: false
+  require_review_for:
+    - Fixed-price bids
+    - Legal terms
+    - Government representations and certifications
+    - Insurance requirements
+    - Security/compliance attestations
+    - Exclusivity or non-compete terms
+
+followup:
+  first_followup_days: 5
+  second_followup_days: 12
