@@ -39,6 +39,10 @@ Use `templates/score.json` and `software-contract-forge score:*`.
 
 Do not submit binding price, legal terms, exclusivity, indemnity, compliance attestations, delivery dates, or SOW commitments unless `config/client-profile.yml` explicitly allows automatic submission for that class of commitment. If not allowed, write a draft and mark it for user review.
 
+## Outbound Link Rule
+
+Buyer-facing direct emails, proposal drafts, cover letters, and follow-ups MUST include the file-backed opportunity URL or contract link when one exists. Use the source posting URL, not an inferred company homepage, unless the source record only has the company link. If a portal field does not allow adding the link, record the omission reason in the report or tracker note.
+
 ## Dedupe Rule
 
 Before applying or drafting, derive an opportunity key:

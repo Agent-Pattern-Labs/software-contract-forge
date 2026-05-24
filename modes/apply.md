@@ -16,10 +16,11 @@ Submit interest, application forms, or proposal packages for qualified software 
 3. Confirm no existing `applied`, `proposal_drafted`, `won`, or active `follow_up_due` state exists for the opportunity key.
 4. If a portal must be driven, delegate to `@general-free`.
 5. If proposal prose or custom answers are needed, delegate that writing to `@general-paid` first.
-6. Submit only non-binding applications unless the client profile explicitly allows the binding commitment.
-7. If the portal blocks on captcha, login, OTP/security code, or other user-side challenge, use `software-contract-forge portal:handoff --url URL --out reports/<id>-handoff.json` only when the user is available to complete the action. Count the application only when the handoff report confirms `applied`.
-8. Write an outcome row with `software-contract-forge contract-line`.
-9. Add or update the dated application log in `data/applications/`.
+6. For buyer-facing direct emails, proposal packages, cover letters, or free-text form answers, include the file-backed opportunity URL or contract link so the buyer and client can identify the exact posting. If the application portal has no safe field for the link, record that limitation in the report or tracker notes.
+7. Submit only non-binding applications unless the client profile explicitly allows the binding commitment.
+8. If the portal blocks on captcha, login, OTP/security code, or other user-side challenge, use `software-contract-forge portal:handoff --url URL --out reports/<id>-handoff.json` only when the user is available to complete the action. Count the application only when the handoff report confirms `applied`.
+9. Write an outcome row with `software-contract-forge contract-line`; notes should preserve the source opportunity URL when the row's URL is an application URL rather than the original posting.
+10. Add or update the dated application log in `data/applications/`.
 
 ## Blockers
 

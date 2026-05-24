@@ -20,6 +20,8 @@ Software Contract Forge is an agentic harness for discovering software contract 
   why: helpers make state transitions reproducible and keep agents from deriving canonical values inconsistently.
 - [H8] Keep Geometra stealth per-call, not global. Do not set global Cloak/stealth environment variables in MCP server configs; for allowed browser tasks, pass `stealth: true` on `geometra_connect` and still stop on login, captcha, paywalls, terms gates, and robots/portal restrictions.
   why: stealth is a browser-session compatibility setting, not permission to bypass access controls or site policies.
+- [H9] Include the source opportunity link in buyer-facing outbound messages. Direct emails, proposal drafts, cover letters, and follow-ups MUST include the file-backed opportunity URL or contract link when one exists; if a portal field cannot include it, record that limitation in the artifact.
+  why: buyers and the client need to know exactly which posting or contract the message refers to, especially after batch sends.
 
 ## Defaults
 
@@ -65,9 +67,10 @@ Software Contract Forge is an agentic harness for discovering software contract 
 7. Delegate browser, prose, and extraction work [D3] [D4] [D5].
 8. Limit dispatch rounds to two workers [H5].
 9. Keep form filling inside subagents [H6].
-10. Apply gates before submission [H4].
-11. Write artifacts [H2].
-12. Verify artifacts [H7].
+10. Include source opportunity links in outbound buyer-facing messages [H9].
+11. Apply gates before submission [H4].
+12. Write artifacts [H2].
+13. Verify artifacts [H7].
 
 ## Output
 

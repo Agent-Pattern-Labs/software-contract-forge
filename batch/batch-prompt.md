@@ -10,6 +10,7 @@ For each input row:
 4. Write a report and score JSON under `reports/`.
 5. If the apply gate passes and no binding terms are required, prepare the application path.
 6. For public ATS forms, use `software-contract-forge portal:preflight` when needed to identify required fields that need user review before submit.
-7. Write a TSV row with `software-contract-forge contract-line`.
+7. Include the input row's opportunity URL or contract link in any buyer-facing direct email, proposal draft, cover letter, or follow-up. If a portal cannot include the link, record that limitation in the report or tracker note.
+8. Write a TSV row with `software-contract-forge contract-line`.
 
 Return JSON with counts: `qualified`, `applied`, `proposal_drafted`, `skipped`, `blocked`, and `failed`.
