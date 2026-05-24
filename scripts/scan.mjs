@@ -1030,9 +1030,19 @@ function extractBudget(value) {
     const match = text.match(pattern);
     if (!match) continue;
     const budget = match[0].match(new RegExp(range, 'i'))?.[0]?.trim();
-    if (budget && !/\b(?:million|billion)\b/i.test(budget)) return budget;
+    if (budget && isLikelyContractBudget(budget, match[0])) return budget;
   }
   return '';
+}
+
+function isLikelyContractBudget(budget, context = '') {
+  const budgetText = String(budget || '');
+  const contextText = String(context || '');
+  if (!budgetText) return false;
+  if (/\b(?:million|billion)\b/i.test(`${budgetText} ${contextText}`)) return false;
+  if (/[$£€]\s?\d[\d,]*(?:\.\d+)?\s?m\b/i.test(budgetText)) return false;
+  if (/\b(?:revenue|arr|valuation|funding|raised|run rate|run-rate|gmv|aum)\b/i.test(contextText)) return false;
+  return true;
 }
 
 function hasContractSignal(value) {
