@@ -175,7 +175,7 @@ async function preflightRow(browser, row) {
 
 function classify(model, row, hasResume) {
   const body = normalize(model.bodyText);
-  const pageUnavailable = /page not found|job board you were viewing is no longer active|job is no longer available|position has been filled/i.test(model.bodyText);
+  const pageUnavailable = /page not found|job not found|job board you were viewing is no longer active|job is no longer available|position has been filled/i.test(model.bodyText);
   const allLabels = uniqueValues(model.labels.map(cleanLabel)).filter(Boolean);
   const requiredControls = model.controls.filter((control) => control.required);
   const requiredLabels = uniqueValues(requiredControls.map((control) => cleanLabel(control.label || control.placeholder || control.name))).filter(Boolean);
@@ -183,6 +183,9 @@ function classify(model, row, hasResume) {
   const warnings = [];
 
   if (pageUnavailable) blockers.push('application page unavailable or inactive');
+  if (!pageUnavailable && model.controls.length === 0 && !allLabels.length) {
+    blockers.push('application form not detected');
+  }
 
   const requiredText = normalize(requiredLabels.join('\n'));
   const labelText = normalize(allLabels.join('\n'));
