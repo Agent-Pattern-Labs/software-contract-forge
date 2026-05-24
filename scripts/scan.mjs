@@ -821,6 +821,7 @@ function origin(value) {
 
 function matchCandidate(candidate, source, clientProfile) {
   const text = `${candidate.title} ${candidate.buyer} ${candidate.notes} ${candidate.description}`.toLowerCase();
+  const roleText = `${candidate.title} ${candidate.buyer} ${candidate.notes}`.toLowerCase();
   const includeTerms = uniqueTerms([
     ...DEFAULT_INCLUDE,
     ...normalizeArray(source.include_keywords || source.keywords),
@@ -832,7 +833,7 @@ function matchCandidate(candidate, source, clientProfile) {
   ]);
 
   const includeHits = includeTerms.filter((term) => termMatches(text, term));
-  const excludeHits = hardExcludes.filter((term) => termMatches(text, term));
+  const excludeHits = hardExcludes.filter((term) => termMatches(roleText, term));
   const contractHits = contractSignalHits(candidate);
   const missingRequiredContractSignal = Boolean(source.require_contract_signal) && contractHits.length === 0;
   const score = includeHits.length + (contractHits.length * 2) - (excludeHits.length * 4);
