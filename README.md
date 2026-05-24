@@ -28,7 +28,7 @@ software-contract-forge scan --source weworkremotely-programming --limit 10
 software-contract-forge scan --write
 ```
 
-`scan` reads only enabled sources in `config/sources.yml`, dry-runs by default, dedupes against local tracker files, and appends discovered leads to `data/pipeline.md` only with `--write`. Supported adapters include public RSS/API feeds, public ATS boards (`greenhouse`, `lever`, `ashby`), explicit first-party HTML career pages, and bounded sitemap extraction.
+`scan` reads only enabled sources in `config/sources.yml`, dry-runs by default, dedupes against local tracker files, and appends discovered leads to `data/pipeline.md` only with `--write`. Per-source limits apply after duplicate filtering, so settled rows do not hide later fresh matches from the same source. Supported adapters include public RSS/API feeds, public ATS boards (`greenhouse`, `lever`, `ashby`), explicit first-party HTML career pages, and bounded sitemap extraction.
 
 For batch processing, materialize pending pipeline leads first:
 

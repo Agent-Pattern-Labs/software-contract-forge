@@ -192,13 +192,14 @@ for (const source of enabledSources) {
       .map((candidate) => normalizeCandidate(candidate, source, scanDate))
       .map((candidate) => ({ ...candidate, match: matchCandidate(candidate, source, clientProfile) }))
       .filter((candidate) => candidate.match.keep)
-      .filter((candidate) => withinDays(candidate.date, days))
-      .slice(0, sourceLimit);
+      .filter((candidate) => withinDays(candidate.date, days));
 
     let addedForSource = 0;
     let duplicateForSource = 0;
 
     for (const candidate of filtered) {
+      if (sourceLimit <= 0) break;
+
       const lead = {
         ...candidate,
         key: opportunityKey(candidate),
@@ -213,6 +214,8 @@ for (const source of enabledSources) {
 
       result.newLeads.push(lead);
       addedForSource++;
+
+      if (addedForSource >= sourceLimit) break;
     }
 
     result.sources.push({

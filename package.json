@@ -1,6 +1,6 @@
 {
   "name": "@agent-pattern-labs/software-contract-forge",
-  "version": "0.1.6",
+  "version": "0.1.7",
   "description": "Agentic harness for finding, qualifying, and applying to software contract opportunities.",
   "type": "module",
   "bin": {
