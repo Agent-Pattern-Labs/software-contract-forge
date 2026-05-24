@@ -43,6 +43,7 @@ Commands:
   contract-line         Render a TSV application/opportunity row
   batch:prepare         Create batch/batch-input.tsv from pending pipeline rows
   portal:preflight      Inspect public ATS forms for user-review blockers
+  portal:handoff        Open headed browser for user-side portal/security completion and record outcome
   score:explain         Show score dimensions and gates
   score:compute         Compute weighted score from JSON
   score:check           Validate score JSON against local gates
@@ -55,6 +56,7 @@ Examples:
   software-contract-forge scan --source weworkremotely-programming --limit 10
   software-contract-forge batch:prepare --limit 20 --source g2i-ashby
   software-contract-forge portal:preflight --input batch/batch-input.tsv --format json
+  software-contract-forge portal:handoff --url https://example.test/jobs/123 --out reports/handoff.json
   software-contract-forge canon:key opportunity --url https://example.test/rfp/123 --buyer "Acme" --title "Node.js API migration"
   software-contract-forge contract-line --source "manual" --url https://example.test --buyer "Acme" --title "API Migration" --status discovered
   software-contract-forge score:gate --gate apply --input reports/acme-score.json
