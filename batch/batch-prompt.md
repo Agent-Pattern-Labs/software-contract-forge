@@ -9,6 +9,7 @@ For each input row:
 3. Qualify with the score policy in `templates/score.json`.
 4. Write a report and score JSON under `reports/`.
 5. If the apply gate passes and no binding terms are required, prepare the application path.
-6. Write a TSV row with `software-contract-forge contract-line`.
+6. For public ATS forms, use `software-contract-forge portal:preflight` when needed to identify required fields that need user review before submit.
+7. Write a TSV row with `software-contract-forge contract-line`.
 
 Return JSON with counts: `qualified`, `applied`, `proposal_drafted`, `skipped`, `blocked`, and `failed`.

@@ -31,6 +31,7 @@ const required = [
   'modes/followup.md',
   'scripts/scan.mjs',
   'scripts/batch.mjs',
+  'scripts/portal.mjs',
   'templates/states.yml',
   'templates/contracts.json',
   'templates/capabilities.json',

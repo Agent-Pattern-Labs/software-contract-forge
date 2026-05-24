@@ -25,6 +25,7 @@ const grouped = {
   score: 'scripts/score.mjs',
   canon: 'scripts/canon.mjs',
   batch: 'scripts/batch.mjs',
+  portal: 'scripts/portal.mjs',
 };
 
 function printHelp() {
@@ -41,6 +42,7 @@ Commands:
   slugify TEXT          Convert text to a stable slug
   contract-line         Render a TSV application/opportunity row
   batch:prepare         Create batch/batch-input.tsv from pending pipeline rows
+  portal:preflight      Inspect public ATS forms for user-review blockers
   score:explain         Show score dimensions and gates
   score:compute         Compute weighted score from JSON
   score:check           Validate score JSON against local gates
@@ -52,6 +54,7 @@ Examples:
   software-contract-forge slugify "Acme Platform Migration"
   software-contract-forge scan --source weworkremotely-programming --limit 10
   software-contract-forge batch:prepare --limit 20 --source g2i-ashby
+  software-contract-forge portal:preflight --input batch/batch-input.tsv --format json
   software-contract-forge canon:key opportunity --url https://example.test/rfp/123 --buyer "Acme" --title "Node.js API migration"
   software-contract-forge contract-line --source "manual" --url https://example.test --buyer "Acme" --title "API Migration" --status discovered
   software-contract-forge score:gate --gate apply --input reports/acme-score.json

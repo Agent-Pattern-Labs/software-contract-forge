@@ -22,7 +22,9 @@ Submit interest, application forms, or proposal packages for qualified software 
 
 ## Blockers
 
-Stop and return `blocked` for login, captcha, unknown rate, payment request, legal terms, missing client proof, compliance attestations, or buyer-required documents not present locally.
+Stop and return `blocked` for login, captcha, payment request, legal terms, missing client proof, compliance attestations, or buyer-required documents not present locally.
+
+Unknown posted rate alone is not a blocker for a non-binding expression of interest when the form does not ask for compensation and the application does not commit to pricing. Stop when the portal asks for hourly rate, salary, fixed price, target compensation, budget acceptance, or other binding commercial terms unless the client profile explicitly allows the answer.
 
 ## Output
 

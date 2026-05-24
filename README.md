@@ -40,6 +40,14 @@ batch/batch-runner.sh --parallel 2
 
 `batch:prepare` reads unchecked rows from `data/pipeline.md`, writes `batch/batch-input.tsv`, and skips rows already settled in application or tracker state by default.
 
+Preflight public ATS application forms before a portal-heavy batch:
+
+```sh
+software-contract-forge portal:preflight --input batch/batch-input.tsv --format json
+```
+
+`portal:preflight` detects required compensation, start-date, work-authorization, citizenship, legal, location, and consent fields that require user review before non-binding submission. It does not submit applications.
+
 ## Shape
 
 - `iso/` is the source of truth for shared agent instructions, subagents, MCP config, and the command router.
