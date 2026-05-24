@@ -24,6 +24,7 @@ const commands = {
 const grouped = {
   score: 'scripts/score.mjs',
   canon: 'scripts/canon.mjs',
+  batch: 'scripts/batch.mjs',
 };
 
 function printHelp() {
@@ -39,6 +40,7 @@ Commands:
   today                 Print today's date in YYYY-MM-DD
   slugify TEXT          Convert text to a stable slug
   contract-line         Render a TSV application/opportunity row
+  batch:prepare         Create batch/batch-input.tsv from pending pipeline rows
   score:explain         Show score dimensions and gates
   score:compute         Compute weighted score from JSON
   score:check           Validate score JSON against local gates
@@ -49,6 +51,7 @@ Commands:
 Examples:
   software-contract-forge slugify "Acme Platform Migration"
   software-contract-forge scan --source weworkremotely-programming --limit 10
+  software-contract-forge batch:prepare --limit 20 --source g2i-ashby
   software-contract-forge canon:key opportunity --url https://example.test/rfp/123 --buyer "Acme" --title "Node.js API migration"
   software-contract-forge contract-line --source "manual" --url https://example.test --buyer "Acme" --title "API Migration" --status discovered
   software-contract-forge score:gate --gate apply --input reports/acme-score.json

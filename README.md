@@ -30,6 +30,16 @@ software-contract-forge scan --write
 
 `scan` reads only enabled sources in `config/sources.yml`, dry-runs by default, dedupes against local tracker files, and appends discovered leads to `data/pipeline.md` only with `--write`. Supported adapters include public RSS/API feeds, public ATS boards (`greenhouse`, `lever`, `ashby`), explicit first-party HTML career pages, and bounded sitemap extraction.
 
+For batch processing, materialize pending pipeline leads first:
+
+```sh
+software-contract-forge batch:prepare --limit 20
+batch/batch-runner.sh --from-pipeline --limit 20 --dry-run
+batch/batch-runner.sh --parallel 2
+```
+
+`batch:prepare` reads unchecked rows from `data/pipeline.md`, writes `batch/batch-input.tsv`, and skips rows already settled in application or tracker state by default.
+
 ## Shape
 
 - `iso/` is the source of truth for shared agent instructions, subagents, MCP config, and the command router.

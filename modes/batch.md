@@ -12,11 +12,12 @@ id	url	source	notes
 
 ## Procedure
 
-1. Prefer `batch/batch-runner.sh` for durable batch runs.
-2. Keep parallelism bounded to 2 unless the batch runner has an explicit lease/state mechanism.
-3. Each worker should qualify first, then apply or draft only when gates pass.
-4. Write worker outputs under `reports/` and `batch/tracker-additions/`.
-5. Settle final state in `data/applications/`.
+1. If `batch/batch-input.tsv` has no rows and pending leads exist in `data/pipeline.md`, run `software-contract-forge batch:prepare --limit N` or `batch/batch-runner.sh --from-pipeline --limit N`.
+2. Prefer `batch/batch-runner.sh` for durable batch runs.
+3. Keep parallelism bounded to 2 unless the batch runner has an explicit lease/state mechanism.
+4. Each worker should qualify first, then apply or draft only when gates pass.
+5. Write worker outputs under `reports/` and `batch/tracker-additions/`.
+6. Settle final state in `data/applications/`.
 
 ## Output
 
