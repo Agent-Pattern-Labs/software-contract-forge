@@ -177,7 +177,7 @@ function classify(model, row, hasResume) {
   if (/\b(captcha|recaptcha|g-recaptcha|hcaptcha|turnstile|private access token|cloudflare)\b/i.test(`${body} ${controlText}`)) {
     const reason = 'captcha or invisible captcha surface detected';
     warnings.push(reason);
-    userActions.push({ type: 'human_verification', reason, instruction: 'Use portal:handoff in a headed browser; do not bypass or automate the challenge.' });
+    userActions.push({ type: 'human_verification', reason, instruction: 'Use portal:handoff in a headed browser for hCaptcha/reCAPTCHA/Turnstile; do not bypass or automate the challenge.' });
   }
   if (/\b(security code|verification code|one[- ]time code|otp|confirm you'?re a human|confirm you are a human)\b/i.test(`${body} ${labelText} ${controlText}`)) {
     const reason = 'email security code or human-verification challenge requires user action';
@@ -192,7 +192,7 @@ function classify(model, row, hasResume) {
   if (/\bnot a robot|robot check|anti-robot\b/i.test(labelText)) {
     const reason = 'robot self-check requires manual portal review';
     blockers.push(reason);
-    userActions.push({ type: 'human_verification', reason, instruction: 'Use portal:handoff in a headed browser; do not bypass or automate the challenge.' });
+    userActions.push({ type: 'human_verification', reason, instruction: 'Use portal:handoff in a headed browser for hCaptcha/reCAPTCHA/Turnstile; do not bypass or automate the challenge.' });
   }
   if (/\bprivacy|consent|terms|agreement\b/i.test(requiredText)) {
     const reason = 'required privacy/terms consent needs user review';
@@ -256,7 +256,7 @@ async function runHandoff(flagArgs) {
     if (!handoffHeadless) {
       console.error([
         'Portal handoff opened a headed browser.',
-        'User may complete captcha, security-code, login, or review-only fields directly in the portal.',
+        'User may complete hCaptcha/reCAPTCHA/Turnstile, security-code, login, or review-only fields directly in the portal.',
         'Do not use this helper to bypass access controls or invent answers.',
         'Press Enter here after the portal shows a terminal state, or wait for auto-detection/timeout.',
       ].join('\n'));
@@ -635,7 +635,7 @@ Behavior:
   - Opens public ATS application pages.
   - Detects required fields that need user review before non-binding submission.
   - Emits structured userActions and reviewItems in JSON output.
-  - Opens a headed browser for user-side captcha, security-code, login, or review completion with portal:handoff.
+  - Opens a headed browser for user-side hCaptcha/reCAPTCHA/Turnstile, security-code, login, or review completion with portal:handoff.
   - Treats required resume/CV upload as allowed when a local resume file exists.
   - Does not bypass captcha, security-code, login, legal, or review gates.`);
 }

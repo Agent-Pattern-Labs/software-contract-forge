@@ -17,7 +17,7 @@ id	url	source	notes
 3. Keep parallelism bounded to 2 unless the batch runner has an explicit lease/state mechanism.
 4. Each worker should qualify first, then apply or draft only when gates pass.
 5. Write worker outputs under `reports/` and `batch/tracker-additions/`.
-6. For portal batches, use `portal:preflight --format json` to separate `userActions` from `reviewItems`. Queue captcha, login, and security-code items for `portal:handoff`; queue compensation, authorization, availability, legal, and identity items for user review.
+6. For portal batches, use `portal:preflight --format json` to separate `userActions` from `reviewItems`. Queue hCaptcha/reCAPTCHA/Turnstile, login, and security-code items for `portal:handoff`; queue compensation, authorization, availability, legal, and identity items for user review.
 7. Settle final state in `data/applications/`.
 
 ## Output

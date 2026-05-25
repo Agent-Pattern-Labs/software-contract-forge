@@ -23,9 +23,11 @@ Software Contract Forge is an agentic harness for discovering software contract 
   why: repeated browser tool results in the top-level session bloat context and make settlement harder to audit.
 - [H7] Use deterministic helpers for identity keys, dates, score math, tracker rows, and validation.
   why: helpers make state transitions reproducible and keep agents from deriving canonical values inconsistently.
-- [H8] Keep Geometra stealth per-call, not global. Do not set global Cloak/stealth environment variables in MCP server configs; for allowed browser tasks, pass `stealth: true` on `geometra_connect` and still stop on login, captcha, paywalls, terms gates, and robots/portal restrictions.
+- [H8] Keep Geometra stealth per-call, not global. Do not set global Cloak/stealth environment variables in MCP server configs; for allowed browser tasks, pass `stealth: true` on `geometra_connect` and still stop on login, hCaptcha/reCAPTCHA/Turnstile, paywalls, terms gates, and robots/portal restrictions.
   why: stealth is a browser-session compatibility setting, not permission to bypass access controls or site policies.
-- [H9] Include the source opportunity link in buyer-facing outbound messages. Direct emails, proposal drafts, cover letters, and follow-ups MUST include the file-backed opportunity URL or contract link when one exists; if a portal field cannot include it, record that limitation in the artifact.
+- [H9] Treat human-verification challenges as handoff work, not solved work. When an otherwise safe portal form reaches hCaptcha/reCAPTCHA/Turnstile, return an exact `software-contract-forge portal:handoff --url ... --out ...` command/report path and count the application only after handoff confirms a portal submission.
+  why: captcha coverage means detecting and routing the challenge to a user-controlled headed session, not bypassing the challenge.
+- [H10] Include the source opportunity link in buyer-facing outbound messages. Direct emails, proposal drafts, cover letters, and follow-ups MUST include the file-backed opportunity URL or contract link when one exists; if a portal field cannot include it, record that limitation in the artifact.
   why: buyers and the client need to know exactly which posting or contract the message refers to, especially after batch sends.
 
 ## Defaults
@@ -72,7 +74,7 @@ Software Contract Forge is an agentic harness for discovering software contract 
 7. Delegate browser, prose, and extraction work [D3] [D4] [D5].
 8. Limit dispatch rounds to two workers [H5].
 9. Keep form filling inside subagents [H6].
-10. Include source opportunity links in outbound buyer-facing messages [H9].
+10. Include source opportunity links in outbound buyer-facing messages [H10].
 11. Apply gates before submission [H4].
 12. Write artifacts [H2].
 13. Verify artifacts [H7].

@@ -46,15 +46,15 @@ Preflight public ATS application forms before a portal-heavy batch:
 software-contract-forge portal:preflight --input batch/batch-input.tsv --format json
 ```
 
-`portal:preflight` detects required compensation, start-date, work-authorization, citizenship, legal, location, consent, captcha, and security-code surfaces that require user review or user action before non-binding submission. JSON output includes `userActions` and `reviewItems` so a batch runner can separate "user must complete a portal challenge" from "user must approve an answer." It does not submit applications.
+`portal:preflight` detects required compensation, start-date, work-authorization, citizenship, legal, location, consent, hCaptcha/reCAPTCHA/Turnstile, and security-code surfaces that require user review or user action before non-binding submission. JSON output includes `userActions` and `reviewItems` so a batch runner can separate "user must complete a portal challenge" from "user must approve an answer." It does not submit applications.
 
-When a portal blocks on a captcha, OTP/security code, login, or review-only field, use a headed handoff instead of trying to bypass it:
+When a portal blocks on hCaptcha/reCAPTCHA/Turnstile, OTP/security code, login, or review-only field, use a headed handoff instead of trying to bypass it:
 
 ```sh
 software-contract-forge portal:handoff --url https://example.test/jobs/123 --out reports/example-handoff.json
 ```
 
-`portal:handoff` opens a persistent headed browser profile under `batch/.portal-handoff-browser`, waits for the user to complete the portal-side action, then records whether a terminal confirmation was detected. It is a human-in-the-loop helper, not an anti-bot bypass.
+`portal:handoff` opens a persistent headed browser profile under `batch/.portal-handoff-browser`, waits for the user to complete the portal-side action, then records whether a terminal confirmation was detected. Geometra/Cloak stealth can help browser compatibility, but this is still a human-in-the-loop helper, not an anti-bot bypass or captcha solver.
 
 ## Shape
 
